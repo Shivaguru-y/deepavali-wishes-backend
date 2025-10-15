@@ -56,6 +56,9 @@ app.post("/convert", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+app.get("/ping", (req, res) => {
+  res.send("pong");
+})
 
 app.listen(4000, () =>
   console.log("✅ Backend running on http://localhost:4000")
