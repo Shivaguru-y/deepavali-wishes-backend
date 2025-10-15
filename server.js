@@ -6,9 +6,17 @@ import path from "path";
 import cors from "cors";
 
 const app = express();
-app.use(cors());
+// app.use(cors());
 app.use(fileUpload());
 app.use(express.static("uploads"));
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://deepavali-wishes.netlify.app"],
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
+
 
 app.post("/convert", async (req, res) => {
   try {
